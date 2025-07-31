@@ -23,7 +23,7 @@
 </div>
 
 <div align="center">
-<b>📰&nbsp;&nbsp;<a href="https://stepfun.ai/research/step3">Step3 Model Blog</a></b> &nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp; <b>📄&nbsp;&nbsp;<a href="https://arxiv.org/abs/2507.19427">Step3 System Blog</a></b>
+<b>📰&nbsp;&nbsp;<a href="https://stepfun.ai/research/step3">Step3 Model Blog</a></b> &nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp; <b>📄&nbsp;&nbsp;<a href="https://arxiv.org/abs/2507.19427">Step3 System Tech Report</a></b>
 </div>
 
 ## Introduction
