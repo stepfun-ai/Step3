@@ -13,7 +13,6 @@
 
 <div align="center" style="line-height: 1;">
   <a href="https://huggingface.co/collections/stepfun-ai/step3-688a3d652dbb45d868f9d42d" target="_blank"><img alt="Hugging Face" src="https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-StepFun-ffc107?color=ffc107&logoColor=white"/></a>
-  <a href="https://github.com/stepfun-ai/step3" target="_blank"><img alt="GitHub" src="https://img.shields.io/badge/GitHub-StepFun-white?logo=github&logoColor=white"/></a>
   <a href="https://www.modelscope.cn/models/stepfun-ai/step3" target="_blank"><img alt="ModelScope" src="https://img.shields.io/badge/ModelScope-StepFun-white?logo=modelscope&logoColor=white"/></a>
   <a href="https://x.com/StepFun_ai" target="_blank"><img alt="Twitter Follow" src="https://img.shields.io/badge/Twitter-StepFun-white?logo=x&logoColor=white"/></a>
 </div>
