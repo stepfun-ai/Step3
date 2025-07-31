@@ -18,7 +18,7 @@ The smallest deployment unit for this version is 16xH20 with either Tensor Paral
 
 ### vLLM Deployment
 
-Please make sure to use nightly version of vllm. For details, please refer to [vllm nightly installation doc](https://docs.vllm.ai/en/latest/getting_started/installation/gpu.html#pre-built-wheels).
+Please make sure to use nightly version of vllm after this [PR](https://github.com/vllm-project/vllm/pull/21998) is merged. For details, please refer to [vllm nightly installation doc](https://docs.vllm.ai/en/latest/getting_started/installation/gpu.html#pre-built-wheels).
 ```bash
 uv pip install -U vllm \
     --torch-backend=auto \
@@ -42,6 +42,7 @@ vllm serve /path/to/step3 \
     --enable-auto-tool-choice \
     --tool-call-parser step3 \
     --trust-remote-code \
+    --max-num-batched-tokens 4096 \
     --port $PORT_SERVING
 ```
 
@@ -58,6 +59,7 @@ vllm serve /path/to/step3 \
     --reasoning-parser step3 \
     --enable-auto-tool-choice \
     --tool-call-parser step3 \
+    --max-num-batched-tokens 4096 \
     --trust-remote-code \
 ```
 
@@ -71,6 +73,7 @@ vllm serve /path/to/step3-fp8 \
     --enable-auto-tool-choice \
     --tool-call-parser step3 \
     --gpu-memory-utilization 0.85 \
+    --max-num-batched-tokens 4096 \
     --trust-remote-code \
 ```
 
@@ -83,6 +86,7 @@ vllm serve /path/to/step3-fp8 \
     --reasoning-parser step3 \
     --enable-auto-tool-choice \
     --tool-call-parser step3 \
+    --max-num-batched-tokens 4096 \
     --trust-remote-code \
 ```
 
@@ -104,15 +108,27 @@ pip3 install "sglang[all]>=0.4.10"
 ##### Tensor Parallelism(Serving on 16xH20):
 
 ```bash
-# start ray on node 0 and node 1
-
-# node 0:
+# node 1
 python -m sglang.launch_server \
-    --model-path /path/to/step3 \
-    --trust-remote-code \
-    --tool-call-parser step3 \
-    --reasoning-parser step3 \
-    --tp 16
+ --model-path stepfun-ai/step3 \
+ --dist-init-addr master_ip:5000 \
+ --trust-remote-code \
+ --tool-call-parser step3 \
+ --reasoning-parser step3 \
+ --tp 16 \
+ --nnodes 2 \
+ --node-rank 0
+
+# node 2
+python -m sglang.launch_server \
+ --model-path stepfun-ai/step3 \
+ --dist-init-addr master_ip:5000 \
+ --trust-remote-code \
+ --tool-call-parser step3 \
+ --reasoning-parser step3 \
+ --tp 16 \
+ --nnodes 2 \
+ --node-rank 1
 ```
 
 #### FP8 Model
