@@ -139,7 +139,7 @@ python -m sglang.launch_server \
     --model-path /path/to/step3-fp8 \
     --trust-remote-code \
     --tool-call-parser step3 \
-    --reasoning-parser step3-fp8 \
+    --reasoning-parser step3 \
     --tp 8
 ```
 
