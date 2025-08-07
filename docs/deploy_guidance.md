@@ -86,6 +86,7 @@ vllm serve /path/to/step3-fp8 \
     --reasoning-parser step3 \
     --enable-auto-tool-choice \
     --tool-call-parser step3 \
+    --gpu-memory-utilization 0.85 \
     --max-num-batched-tokens 4096 \
     --trust-remote-code \
 ```
