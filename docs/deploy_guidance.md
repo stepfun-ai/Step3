@@ -29,6 +29,8 @@ We recommend to use the following command to deploy the model:
 
 **`max_num_batched_tokens` should be larger than 4096. If not set, the default value is 8192.**
 
+To deploy the model for text-only inference, thereby offloading vision modules to increase available GPU memory for KV-cache allocation, append `--limit-mm-per-prompt '{"image": 0}'` to the commands below.
+
 #### BF16 Model
 ##### Tensor Parallelism(Serving on 16xH20):
 
